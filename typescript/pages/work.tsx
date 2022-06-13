@@ -1,22 +1,10 @@
 import {
   Box,
   Center,
-  Badge,
   Flex,
   Spacer,
-  Text,
-  Spinner,
-  Grid,
-  GridItem,
   Image,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
+  Link,
   useDisclosure,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
@@ -57,6 +45,11 @@ const skillCategories = [
   "tool",
   "qualification",
 ];
+
+const root =
+  process.env.NODE_ENV === "development"
+    ? "/"
+    : "https://storage.googleapis.com/aono-portfolio-frontend/";
 
 export const Home: NextPage = () => {
   const { data, error, mutate } = useSWR(url, fetcher());
@@ -116,64 +109,104 @@ export const Home: NextPage = () => {
                 Work
               </Box>
             </Center>
-            <Box
-              maxW="sm"
-              borderWidth="1px"
-              borderRadius="lg"
-              overflow="hidden"
+
+            <Center
+              bg="gray"
+              h={["40px", "75px"]}
+              color="white"
+              mx={["10", "20"]}
+              shadow={"2xl"}
+              borderRadius="base"
+              scrollBehavior={"smooth"}
             >
-              <Image src={"/profile.jpg"} width="100px" height="100px" />
-
-              <Box p="6">
-                <Box display="flex" alignItems="baseline">
-                  <Badge borderRadius="full" px="2" colorScheme="teal">
-                    New
-                  </Badge>
-                  <Box
-                    color="gray.500"
-                    fontWeight="semibold"
-                    letterSpacing="wide"
-                    fontSize="xs"
-                    textTransform="uppercase"
-                    ml="2"
-                  >
-                    baths
-                  </Box>
-                </Box>
-
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="tight"
-                  noOfLines={1}
-                >
-                  title
-                </Box>
-
-                <Box>
-                  <Box as="span" color="gray.600" fontSize="sm">
-                    / wk
-                  </Box>
-                </Box>
-
-                <Box display="flex" mt="2" alignItems="center"></Box>
+              <Box
+                mt="1"
+                fontWeight="semibold"
+                fontSize={["medium", "5xl"]}
+                as="h3"
+                lineHeight="tight"
+                noOfLines={1}
+              >
+                Go Next Portfolio
               </Box>
-            </Box>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>{modalTitle}</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>{modalBody}</ModalBody>
+            </Center>
 
-                <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={onClose}>
-                    閉じる
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
+            <Center
+              bg="lightblue"
+              h={["40px", "75px"]}
+              mt="10"
+              mx={["10", "20"]}
+              shadow={"2xl"}
+              borderRadius="base"
+              scrollBehavior={"smooth"}
+            >
+              <Box
+                mt="1"
+                fontWeight="semibold"
+                fontSize={["medium", "5xl"]}
+                as="h3"
+                lineHeight="tight"
+                noOfLines={1}
+              >
+                Admin Page
+              </Box>
+            </Center>
+            <Flex>
+              <Image
+                src={`${root}admin-home.png`}
+                width={"40%"}
+                height={"40%"}
+                p={["1", "5"]}
+                ml={["2", "20"]}
+              />
+              <Spacer />
+              <Image
+                src={`${root}admin-slide.png`}
+                width={"40%"}
+                height={"40%"}
+                p={["1", "5"]}
+                mr={["2", "20"]}
+              />
+            </Flex>
+
+            <Center
+              bg="lightblue"
+              h={["40px", "75px"]}
+              mt="10"
+              mx={["10", "20"]}
+              shadow={"2xl"}
+              borderRadius="base"
+              scrollBehavior={"smooth"}
+            >
+              <Box
+                mt="1"
+                fontWeight="semibold"
+                fontSize={["medium", "5xl"]}
+                as="h4"
+                lineHeight="tight"
+                noOfLines={1}
+              >
+                Git hub
+              </Box>
+            </Center>
+
+            <Center
+              bg="lightgray"
+              h={["40px", "75px"]}
+              mx={["10", "20"]}
+              mb="20"
+              shadow={"2xl"}
+              borderRadius="base"
+              scrollBehavior={"smooth"}
+              color="blue"
+            >
+              <Link
+                href="https://github.com/Jyury11/go-next-portfolio"
+                target={"_blank"}
+              >
+                https://github.com/Jyury11/go-next-portfolio
+              </Link>
+            </Center>
           </Box>
         </main>
       </Box>
