@@ -1,0 +1,178 @@
+swagger: "2.0"
+host: aono-portfolio-portfolio-gateway-api-0q8igql4542jg.apigateway.aono-portfolio.cloud.goog
+x-google-endpoints:
+  - name: aono-portfolio-portfolio-gateway-api-0q8igql4542jg.apigateway.aono-portfolio.cloud.goog
+    allowCors: True
+info:
+  title: aono-portfolio-gateway
+  description: Aono portfolio API Gateway
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /api/v1/portfolios:
+    get:
+      summary: Portfolio情報取得
+      operationId: getApiPortfolioV1
+      x-google-backend:
+        address: https://backend-cc4oe6q3aa-an.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+        protocol: h2
+      responses:
+        "200":
+          description: Portfolio情報取得成功
+          schema:
+            type: string
+        "400":
+          description: 不正なリクエストによりPortfolio情報取得失敗
+          schema:
+            type: string
+        "401":
+          $ref: "#/responses/UnauthorizedError"
+        "404":
+          description: 存在しないPortfolio情報へのリクエスト
+          schema:
+            type: string
+        "500":
+          description: InternalServerErrorによりPortfolio情報取得失敗
+          schema:
+            type: string
+    post:
+      summary: Portfolio情報更新
+      operationId: postApiPortfolioV1
+      x-google-backend:
+        address: https://backend-cc4oe6q3aa-an.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+        protocol: h2
+      security:
+        - google_id_token: []
+      responses:
+        "200":
+          description: Portfolio情報更新成功
+          schema:
+            type: string
+        "400":
+          description: 不正なリクエストによりPortfolio情報更新失敗
+          schema:
+            type: string
+        "401":
+          $ref: "#/responses/UnauthorizedError"
+        "404":
+          description: 存在しないPortfolio情報へのリクエスト
+          schema:
+            type: string
+        "500":
+          description: InternalServerErrorによりPortfolio情報更新失敗
+          schema:
+            type: string
+  /api/v1/portfolios/{id}:
+    get:
+      summary: Portfolio情報取得
+      operationId: getApiPortfolioByIdV1
+      x-google-backend:
+        address: https://backend-cc4oe6q3aa-an.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+        protocol: h2
+      parameters:
+        - name: id
+          in: path
+          description: portfolioId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Portfolio情報取得成功
+          schema:
+            type: string
+        "400":
+          description: 不正なリクエストによりPortfolio情報取得失敗
+          schema:
+            type: string
+        "401":
+          $ref: "#/responses/UnauthorizedError"
+        "404":
+          description: 存在しないPortfolio情報へのリクエスト
+          schema:
+            type: string
+        "500":
+          description: InternalServerErrorによりPortfolio情報取得失敗
+          schema:
+            type: string
+    put:
+      summary: Portfolio情報更新
+      operationId: putApiPortfolioByIdV1
+      x-google-backend:
+        address: https://backend-cc4oe6q3aa-an.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+        protocol: h2
+      security:
+        - google_id_token: []
+      parameters:
+        - name: id
+          in: path
+          description: portfolioId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Portfolio情報更新成功
+          schema:
+            type: string
+        "400":
+          description: 不正なリクエストによりPortfolio情報更新失敗
+          schema:
+            type: string
+        "401":
+          $ref: "#/responses/UnauthorizedError"
+        "500":
+          description: InternalServerErrorによりPortfolio情報更新失敗
+          schema:
+            type: string
+    delete:
+      summary: Portfolio情報削除
+      operationId: deleteApiPortfolioByIdV1
+      x-google-backend:
+        address: https://backend-cc4oe6q3aa-an.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+        protocol: h2
+      security:
+        - google_id_token: []
+      parameters:
+        - name: id
+          in: path
+          description: portfolioId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Portfolio情報削除成功
+          schema:
+            type: string
+        "400":
+          description: 不正なリクエストによりPortfolio情報削除失敗
+          schema:
+            type: string
+        "401":
+          $ref: "#/responses/UnauthorizedError"
+        "500":
+          description: InternalServerErrorによりPortfolio情報削除失敗
+          schema:
+            type: string
+
+securityDefinitions:
+  google_id_token:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    x-google-issuer: "https://accounts.google.com"
+    x-google-jwks_uri: "https://www.googleapis.com/oauth2/v3/certs"
+    x-google-audiences: "120805360446-nm6nbdndaqpisns3f3esqvvh8ip2hr3o.apps.googleusercontent.com"
+
+responses:
+  UnauthorizedError:
+    description: API key is missing or invalid
+    headers:
+      WWW_Authenticate:
+        type: string

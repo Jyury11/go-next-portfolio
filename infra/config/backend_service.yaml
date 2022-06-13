@@ -1,0 +1,39 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    client.knative.dev/user-image: ko://github.com/Jyury11/go-next-portfolio/cmd/api/
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+  labels:
+    cloud.googleapis.com/location: asia-northeast1
+  name: backend
+  namespace: "120805360446"
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "4"
+        run.googleapis.com/client-name: cloud-console
+    spec:
+      containerConcurrency: 80
+      containers:
+        - image: ko://github.com/Jyury11/go-next-portfolio/cmd/api/
+          ports:
+            - containerPort: 8080
+              name: http1
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: latest
+                  name: DATABASE_URL
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+      serviceAccountName: 120805360446-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300
+  traffic:
+    - latestRevision: true
+      percent: 100
