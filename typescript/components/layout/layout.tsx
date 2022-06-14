@@ -82,27 +82,6 @@ const Layout = ({ href = "/", children }: LayoutProps): JSX.Element => {
               </Box>
             </NextLink>
             <Divider orientation="vertical" />
-            <NextLink
-              // href={
-              //   process.env.NODE_ENV === "development"
-              //     ? "/admin"
-              //     : "https://storage.cloud.google.com/aono-portfolio-frontend/admin.html"
-              // }
-              href="/admin"
-            >
-              <Box
-                marginX="auto"
-                marginY="auto"
-                padding="4"
-                fontSize={["medium", "xxx-large"]}
-                _hover={{
-                  bg: "darkblue",
-                }}
-                borderRadius="full"
-              >
-                admin
-              </Box>
-            </NextLink>
           </Flex>
         </Flex>
       </Box>
