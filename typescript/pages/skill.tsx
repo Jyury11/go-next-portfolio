@@ -1,11 +1,7 @@
 import {
   Box,
   Center,
-  Badge,
   Flex,
-  Spacer,
-  Text,
-  Spinner,
   Grid,
   GridItem,
   Image,
@@ -167,6 +163,7 @@ export const Home: NextPage = () => {
                                     borderRadius="100%"
                                     width={["50px", "100px"]}
                                     height={["50px", "100px"]}
+                                    alt={element.image}
                                   />
                                 </Center>
                               </GridItem>

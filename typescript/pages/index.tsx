@@ -1,22 +1,10 @@
 import {
   Box,
   Center,
-  Badge,
-  Flex,
-  Spacer,
   Text,
-  Spinner,
   Grid,
   GridItem,
   Image,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
@@ -50,14 +38,6 @@ const fetcher = () => async () => {
   console.error(`can't get setting data. http responce is ${result.status}`);
   return {};
 };
-
-const skillCategories = [
-  "language",
-  "framework",
-  "infra",
-  "tool",
-  "qualification",
-];
 
 export const Home: NextPage = () => {
   const { data, error, mutate } = useSWR(url, fetcher());
@@ -115,7 +95,7 @@ export const Home: NextPage = () => {
                 lineHeight="tight"
                 noOfLines={1}
               >
-                Programmer Ryuju Aono's
+                Programmer Ryuju Aono
               </Box>
             </Center>
 
@@ -154,6 +134,7 @@ export const Home: NextPage = () => {
                             width={["100px", "300px"]}
                             height={["80px", "280px"]}
                             borderRadius="100%"
+                            alt={element.image}
                           />
                         </GridItem>
 
@@ -190,18 +171,6 @@ export const Home: NextPage = () => {
       </Box>
     </Layout>
   );
-};
-
-const printStarByNumber = (num: number): JSX.Element[] => {
-  const stars = [];
-  for (let i = 0; i < num; i++) {
-    stars.push(
-      <Box color="blue" my="8" mx="3" fontSize={"4xl"} shadow={"2xl"}>
-        <HiStar />
-      </Box>
-    );
-  }
-  return stars;
 };
 
 export default Home;

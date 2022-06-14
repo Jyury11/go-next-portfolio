@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/Jyury11/go-next-portfolio/internal/entity/model"
@@ -16,19 +15,6 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-)
-
-var (
-	allowOrigins = []string{
-		"http://localhost:3000",
-		"http://host.docker.internal:3000",
-		"https://storage.googleapis.com",
-		"https://storage.cloud.google.com",
-	}
-
-	allowWildCardSubDomainOrigins = []string{
-		"apidata.googleusercontent.com",
-	}
 )
 
 // Handler
@@ -50,19 +36,8 @@ func (h *Handler) Run() error {
 			"http://host.docker.internal:3000",
 			"https://storage.googleapis.com",
 			"https://storage.cloud.google.com",
-		},
-		AllowOriginFunc: func(origin string) bool {
-			for _, allowOrigin := range allowOrigins {
-				if origin == allowOrigin {
-					return true
-				}
-			}
-			for _, allowOrigin := range allowWildCardSubDomainOrigins {
-				if strings.HasSuffix(origin, allowOrigin) {
-					return true
-				}
-			}
-			return false
+			"https://aono-portfolio-portfolio-gateway-1jhwe4ou.an.gateway.dev",
+			"https://frontend-cc4oe6q3aa-an.a.run.app",
 		},
 		AllowMethods: []string{
 			"POST",
@@ -76,10 +51,16 @@ func (h *Handler) Run() error {
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Credentials",
 			"Access-Control-Allow-Headers",
+			"Access-Control-Allow-Methods",
 			"Content-Type",
 			"Content-Length",
 			"Accept-Encoding",
 			"Authorization",
+			"authorization",
+			"Accept",
+			"X-Requested-With",
+			"Origin",
+			"X-Csrftoken",
 			"x-api-key",
 		},
 		AllowCredentials: true,

@@ -1,5 +1,5 @@
 {
-  "name": "@telmei-ts/client-setting",
+  "name": "@aono-portfolio/typescript",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
@@ -14,7 +14,6 @@
     "tsc": "tsc --pretty --noEmit",
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
-    "prepare": "husky install",
     "upload": "bash ./scripts/upload.sh",
     "dist": "npm run build && npm run upload"
   },
@@ -27,7 +26,8 @@
     "next": "11.1.2",
     "next-seo": "^4.26.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@chakra-ui/react": "^1.6.10",
@@ -51,10 +51,9 @@
     "jest-watch-typeahead": "^0.6.4",
     "js-yaml": "^4.1.0",
     "json-loader": "^0.5.7",
+    "next-auth": "^4.5.0",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-rnd": "^10.3.5",
     "rooks": "^5.7.3",

@@ -1,17 +1,7 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Spacer,
-  Image,
-  Link,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Spacer, Image, Link } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Head from "next/head";
 import useSWR from "swr";
-import { useState } from "react";
-import { HiStar } from "react-icons/hi";
 import { Layout } from "../components";
 
 const url =
@@ -38,31 +28,8 @@ const fetcher = () => async () => {
   return {};
 };
 
-const skillCategories = [
-  "language",
-  "framework",
-  "infra",
-  "tool",
-  "qualification",
-];
-
-const root =
-  process.env.NODE_ENV === "development"
-    ? "/"
-    : "https://storage.googleapis.com/aono-portfolio-frontend/";
-
 export const Home: NextPage = () => {
   const { data, error, mutate } = useSWR(url, fetcher());
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [modalBody, setModalBody] = useState("");
-  const [modalTitle, setModalTitle] = useState("");
-  const openModal = (title: string, body: string) => {
-    return () => {
-      setModalTitle(title);
-      setModalBody(body);
-      onOpen();
-    };
-  };
 
   if (error) return <div>failed to load</div>;
   if (!data)
@@ -153,19 +120,21 @@ export const Home: NextPage = () => {
             </Center>
             <Flex>
               <Image
-                src={`${root}admin-home.png`}
+                src={`/admin-home.png`}
                 width={"40%"}
                 height={"40%"}
                 p={["1", "5"]}
                 ml={["2", "20"]}
+                alt={"admin-home.png`"}
               />
               <Spacer />
               <Image
-                src={`${root}admin-slide.png`}
+                src={`/admin-slide.png`}
                 width={"40%"}
                 height={"40%"}
                 p={["1", "5"]}
                 mr={["2", "20"]}
+                alt={"admin-home.png`"}
               />
             </Flex>
 
@@ -212,18 +181,6 @@ export const Home: NextPage = () => {
       </Box>
     </Layout>
   );
-};
-
-const printStarByNumber = (num: number): JSX.Element[] => {
-  const stars = [];
-  for (let i = 0; i < num; i++) {
-    stars.push(
-      <Box color="blue" my="8" mx="3" fontSize={"4xl"} shadow={"2xl"}>
-        <HiStar />
-      </Box>
-    );
-  }
-  return stars;
 };
 
 export default Home;

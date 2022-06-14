@@ -1,15 +1,18 @@
 import { ChuiProvider } from "theme";
-import type { AppProps } from "next/app";
 import * as React from "react";
 import { AnimatePresence } from "framer-motion";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   return (
     <ChuiProvider>
       <AnimatePresence exitBeforeEnter>
-        <Component key={router.asPath} {...pageProps} />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </AnimatePresence>
     </ChuiProvider>
   );
 }
+
 export default MyApp;

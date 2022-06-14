@@ -83,11 +83,12 @@ const Layout = ({ href = "/", children }: LayoutProps): JSX.Element => {
             </NextLink>
             <Divider orientation="vertical" />
             <NextLink
-              href={
-                process.env.NODE_ENV === "development"
-                  ? "/admin"
-                  : "https://storage.cloud.google.com/aono-portfolio-frontend/admin.html"
-              }
+              // href={
+              //   process.env.NODE_ENV === "development"
+              //     ? "/admin"
+              //     : "https://storage.cloud.google.com/aono-portfolio-frontend/admin.html"
+              // }
+              href="/admin"
             >
               <Box
                 marginX="auto"
@@ -106,9 +107,9 @@ const Layout = ({ href = "/", children }: LayoutProps): JSX.Element => {
         </Flex>
       </Box>
       <motion.div
-        initial={{ opacity: 0, y: 10 }} // 初期状態
-        animate={{ opacity: 1, y: 0 }} // マウント時
-        exit={{ opacity: 0, y: 10 }} // アンマウント時
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
         transition={{
           duration: 0.5,
         }}

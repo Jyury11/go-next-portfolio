@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="P5WLFiHMXQn9MDCqqHw6" name="ページ1">
-        <mxGraphModel dx="464" dy="552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="489" dy="639" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -10,11 +10,12 @@
                 <mxCell id="2" value="GCP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=left;" parent="1" vertex="1">
                     <mxGeometry x="40" y="170" width="360" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="" style="edgeStyle=none;html=1;fontColor=#333333;" parent="1" source="16" target="9" edge="1">
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;fontColor=#333333;" parent="1" source="16" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="312" y="230"/>
                         </Array>
+                        <mxPoint x="312" y="250" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="3" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" parent="1" vertex="1">
@@ -40,14 +41,6 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="9" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" parent="1" vertex="1">
-                    <mxGeometry x="234" y="250" width="156" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="&lt;font color=&quot;#000000&quot;&gt;Next.js Frontend&lt;/font&gt;&lt;br&gt;Cloud Storage" style="sketch=0;dashed=0;connectable=0;html=1;fillColor=#5184F3;strokeColor=none;shape=mxgraph.gcp2.hexIcon;prIcon=cloud_storage;part=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=5;fontColor=#999999;fontSize=12;" parent="9" vertex="1">
-                    <mxGeometry y="0.5" width="44" height="39" relative="1" as="geometry">
-                        <mxPoint x="5" y="-19.5" as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="11" value="Heroku" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;" parent="1" vertex="1">
                     <mxGeometry x="40" y="400" width="200" height="120" as="geometry"/>
                 </mxCell>
@@ -63,7 +56,7 @@
                 <mxCell id="14" value="Mysql&lt;br&gt;&lt;font color=&quot;#b3b3b3&quot;&gt;Heroku DB&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="15" vertex="1">
                     <mxGeometry x="55" y="14.5" width="75" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="" style="edgeStyle=none;html=1;fontColor=#333333;entryX=0.439;entryY=0.031;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3" edge="1" source="16">
+                <mxCell id="23" value="" style="edgeStyle=none;html=1;fontColor=#333333;entryX=0.439;entryY=0.031;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="16" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="160" y="70" as="sourcePoint"/>
                         <mxPoint x="195" y="70" as="targetPoint"/>
@@ -78,6 +71,14 @@
                 <mxCell id="26" value="" style="edgeStyle=none;html=1;fontColor=#333333;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="140" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" parent="1" vertex="1">
+                    <mxGeometry x="237" y="250" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;Next.js Frontend&lt;/span&gt;&lt;br&gt;Cloud Run" style="sketch=0;dashed=0;connectable=0;html=1;fillColor=#5184F3;strokeColor=none;shape=mxgraph.gcp2.hexIcon;prIcon=cloud_run;part=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=5;fontColor=#999999;fontSize=12;" parent="28" vertex="1">
+                    <mxGeometry y="0.5" width="44" height="39" relative="1" as="geometry">
+                        <mxPoint x="5" y="-19.5" as="offset"/>
                     </mxGeometry>
                 </mxCell>
             </root>

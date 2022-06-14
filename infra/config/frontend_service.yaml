@@ -1,0 +1,33 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    client.knative.dev/user-image: asia-northeast1-docker.pkg.dev/aono-portfolio/frontend/frontend:latest
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+  labels:
+    cloud.googleapis.com/location: asia-northeast1
+  name: frontend
+  namespace: "120805360446"
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "4"
+        run.googleapis.com/client-name: cloud-console
+    spec:
+      containerConcurrency: 80
+      containers:
+        - image: asia-northeast1-docker.pkg.dev/aono-portfolio/frontend/frontend:latest
+          ports:
+            - containerPort: 3000
+              name: http1
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+      serviceAccountName: 120805360446-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300
+  traffic:
+    - latestRevision: true
+      percent: 100
