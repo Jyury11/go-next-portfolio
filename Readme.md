@@ -1,6 +1,6 @@
 # go-next-portfolio
 
-[ポートフォリオサイト](https://frontend-cc4oe6q3aa-an.a.run.app/)
+[ポートフォリオサイト](https://storage.googleapis.com/aono-portfolio-frontend/index.html)
 
 ## Golang + Next.jsによるポートフォリオサイト
 
