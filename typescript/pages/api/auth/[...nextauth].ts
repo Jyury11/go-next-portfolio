@@ -1,11 +1,12 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import Okta from "next-auth/providers/okta";
 
 export default NextAuth({
   providers: [
-    Google({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "",
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET ?? "",
+    Okta({
+      clientId: process.env.NEXT_PUBLIC_OKTA_CLIENT_ID ?? "",
+      clientSecret: process.env.NEXT_PUBLIC_OKTA_CLIENT_SECRET ?? "",
+      issuer: process.env.NEXT_PUBLIC_OKTA_ISSUER ?? "",
     }),
   ],
   callbacks: {
@@ -13,12 +14,12 @@ export default NextAuth({
       if (account && user) {
         return {
           ...token,
-          accessToken: account.access_token,
+          accessToken: account.id_token,
         };
       }
       return token;
     },
-    session({session, user, token}) {
+    session({ session, user, token }) {
       session.accessToken = token.accessToken;
       return session;
     },

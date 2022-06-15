@@ -20,4 +20,6 @@ ENV NODE_ENV production
 EXPOSE 3000
 ENV PORT 3000
 
+RUN yarn build
+
 CMD ["yarn", "start"]

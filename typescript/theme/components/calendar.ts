@@ -1,24 +1,24 @@
-import { ComponentMultiStyleConfig } from '@chakra-ui/theme'
+import { ComponentMultiStyleConfig } from "@chakra-ui/theme";
 
 export const Calendar: ComponentMultiStyleConfig = {
-  parts: ['wdays', 'title'],
+  parts: ["wdays", "title"],
   baseStyle: ({ colorMode }) => ({
     wdays: {
       borderRadius: 0,
-      fontWeight: 'semibold',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: colorMode === 'dark' ? 'white' : 'black',
+      fontWeight: "semibold",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: colorMode === "dark" ? "white" : "black",
       _first: {
-        color: 'red.500',
+        color: "red.500",
       },
       _last: {
-        color: 'blue.500',
+        color: "blue.500",
       },
     },
     title: {
-      fontWeight: 'semibold',
+      fontWeight: "semibold",
     },
   }),
   sizes: {
@@ -26,11 +26,11 @@ export const Calendar: ComponentMultiStyleConfig = {
       wdays: {
         h: 12,
         minW: 12,
-        fontSize: 'lg',
+        fontSize: "lg",
         px: 6,
       },
       title: {
-        fontSize: '2xl',
+        fontSize: "2xl",
         h: 12,
       },
     },
@@ -38,11 +38,11 @@ export const Calendar: ComponentMultiStyleConfig = {
       wdays: {
         h: 10,
         minW: 10,
-        fontSize: 'md',
+        fontSize: "md",
         px: 4,
       },
       title: {
-        fontSize: 'xl',
+        fontSize: "xl",
         h: 10,
       },
     },
@@ -50,11 +50,11 @@ export const Calendar: ComponentMultiStyleConfig = {
       wdays: {
         h: 8,
         minW: 8,
-        fontSize: 'sm',
+        fontSize: "sm",
         px: 3,
       },
       title: {
-        fontSize: 'lg',
+        fontSize: "lg",
         h: 8,
       },
     },
@@ -62,16 +62,16 @@ export const Calendar: ComponentMultiStyleConfig = {
       wdays: {
         h: 6,
         minW: 6,
-        fontSize: 'xs',
+        fontSize: "xs",
         px: 2,
       },
       title: {
-        fontSize: 'md',
+        fontSize: "md",
         h: 6,
       },
     },
   },
   defaultProps: {
-    size: 'md',
+    size: "md",
   },
-}
+};

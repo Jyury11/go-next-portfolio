@@ -47,7 +47,7 @@ paths:
         path_translation: APPEND_PATH_TO_ADDRESS
         protocol: h2
       security:
-        - google_id_token: []
+        - okta: []
       responses:
         "200":
           description: Portfolio情報更新成功
@@ -108,7 +108,7 @@ paths:
         path_translation: APPEND_PATH_TO_ADDRESS
         protocol: h2
       security:
-        - google_id_token: []
+        - okta: []
       parameters:
         - name: id
           in: path
@@ -138,7 +138,7 @@ paths:
         path_translation: APPEND_PATH_TO_ADDRESS
         protocol: h2
       security:
-        - google_id_token: []
+        - okta: []
       parameters:
         - name: id
           in: path
@@ -162,13 +162,13 @@ paths:
             type: string
 
 securityDefinitions:
-  google_id_token:
+  okta:
     authorizationUrl: ""
     flow: "implicit"
     type: "oauth2"
-    x-google-issuer: "https://accounts.google.com"
-    x-google-jwks_uri: "https://www.googleapis.com/oauth2/v1/certs"
-    x-google-audiences: "120805360446-nm6nbdndaqpisns3f3esqvvh8ip2hr3o.apps.googleusercontent.com"
+    x-google-issuer: "https://dev-57593512.okta.com/oauth2/default"
+    x-google-jwks_uri: "https://dev-57593512.okta.com/oauth2/default/v1/keys"
+    x-google-audiences: "0oa5e73qi8RjkpsnV5d7"
 
 responses:
   UnauthorizedError:

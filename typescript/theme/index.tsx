@@ -4,28 +4,28 @@ import {
   ThemeConfig,
   ThemeOverride,
   withDefaultColorScheme,
-} from '@chakra-ui/react'
-import React from 'react'
+} from "@chakra-ui/react";
+import React from "react";
 
-import { colors } from './colors'
-import { GradientButton } from './components/button'
-import { Calendar } from './components/calendar'
-import { ThemeContext } from './context'
-import { fonts } from './fonts'
+import { colors } from "./colors";
+import { GradientButton } from "./components/button";
+import { Calendar } from "./components/calendar";
+import { ThemeContext } from "./context";
+import { fonts } from "./fonts";
 
-export { colors, ThemeContext }
+export { colors, ThemeContext };
 
 export const config: ThemeConfig = {
   useSystemColorMode: false,
-  initialColorMode: 'light',
-}
+  initialColorMode: "light",
+};
 
 type ChuiProviderProps = {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
 export const ChuiProvider = ({ children }: ChuiProviderProps) => {
-  const [brand, setBrand] = React.useState('blue')
+  const [brand, setBrand] = React.useState("blue");
 
   const overrides: ThemeOverride = {
     colors: { brand: colors[brand] },
@@ -38,11 +38,11 @@ export const ChuiProvider = ({ children }: ChuiProviderProps) => {
       GradientButton,
       Calendar,
     },
-  }
+  };
   const customTheme = extendTheme(
     overrides,
-    withDefaultColorScheme({ colorScheme: 'brand' })
-  )
+    withDefaultColorScheme({ colorScheme: "brand" })
+  );
 
   // useEffect(() => {
   //   setBrand(window.localStorage.getItem('brand') || 'blue')
@@ -58,12 +58,12 @@ export const ChuiProvider = ({ children }: ChuiProviderProps) => {
       colors,
     }),
     [brand]
-  )
+  );
   return (
     <ChakraProvider theme={customTheme}>
       <ThemeContext.Provider value={themeProps}>
         {children}
       </ThemeContext.Provider>
     </ChakraProvider>
-  )
-}
+  );
+};

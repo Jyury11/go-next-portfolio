@@ -1,19 +1,19 @@
-import { render, RenderOptions, RenderResult } from '@testing-library/react'
-import { ReactElement, ReactNode } from 'react'
+import { render, RenderOptions, RenderResult } from "@testing-library/react";
+import { ReactElement, ReactNode } from "react";
 
 type ProvidersProps = {
-  children?: ReactNode
-}
+  children?: ReactNode;
+};
 
 const Providers = ({ children }: ProvidersProps): JSX.Element => {
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
 const customRender = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, 'queries'>
-): RenderResult => render(ui, { wrapper: Providers, ...options })
+  options?: Omit<RenderOptions, "queries">
+): RenderResult => render(ui, { wrapper: Providers, ...options });
 
-export * from '@testing-library/react'
+export * from "@testing-library/react";
 
-export { customRender as render }
+export { customRender as render };
